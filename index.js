@@ -86,21 +86,28 @@ clearBtn.addEventListener("click", function () {        // clear button
 
 function render(links) {
     let listItems = "";
-    for (i = 0; i < links.length; i++) {
-        let newUrl = links[i]["url"];
-        let newTitle = links[i]["title"];
-        if (newTitle === "") {
-            newTitle = newUrl;
+    if (links.length === 0) {
+        listItems = `
+        <li class="ul-placeholder">Saved links go here</li>
+        `
+    } else {
+        for (i = 0; i < links.length; i++) {
+            let newUrl = links[i]["url"];
+            let newTitle = links[i]["title"];
+            if (newTitle === "") {
+                newTitle = newUrl;
+            }
+            listItems += `
+            <li>
+                <div class="li-container">
+                    <div class="title-container"><a href="${newUrl}" target="_blank">${newTitle}</a></div>
+                    <div id="${i}" class="x-container">&#10060;</div>
+                </div>
+            </li>
+        `
         }
-        listItems += `
-        <li>
-            <div class="li-container">
-                <div class="title-container"><a href="${newUrl}" target="_blank">${newTitle}</a></div>
-                <div id="${i}" class="x-container">&#10060;</div>
-            </div>
-        </li>
-    `
     }
+
     ulEl.innerHTML = listItems;                                 // render the list items!!
     for (i = 0; i < xBtnEl.length; i++) {                       // remove individual list items with X button
         xBtnEl.item(i).addEventListener("click", function () {
@@ -112,10 +119,10 @@ function render(links) {
 }
 
 // nope button, for troubleshooting purposes
-// const nope = document.getElementById("nope");
-// nope.addEventListener("click", function() {
-//     localStorage.clear();
-//     location.reload();
-// });
+const nope = document.getElementById("nope");
+nope.addEventListener("click", function() {
+    localStorage.clear();
+    location.reload();
+});
 
 // <button id="nope" class="btn2">NOPE</button>
