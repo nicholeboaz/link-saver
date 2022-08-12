@@ -95,7 +95,7 @@ function render(links) {
         listItems += `
         <li>
             <div class="li-container">
-                <div class="title-container"><a href="${newUrl}">${newTitle}</a></div>
+                <div class="title-container"><a href="${newUrl}" target="_blank">${newTitle}</a></div>
                 <div id="${i}" class="x-container">&#10060;</div>
             </div>
         </li>
