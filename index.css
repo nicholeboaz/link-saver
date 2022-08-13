@@ -28,6 +28,11 @@ body {
     overflow: hidden;
 }
 
+main {
+    min-height: 150px;
+    padding-bottom: 10px;
+}
+
 input {
     width: 100%;
     padding: 10px;
@@ -48,21 +53,19 @@ button {
     color: var(--text2);
     cursor: pointer;
     margin-right: 2px;
-}
-
-.btn1 {
     background: var(--accent);
 }
 
-.btn2 {
-    background: var(--accent);
+hr {
+    border-top: 2px solid black;
+    border-bottom: none;
 }
 
 ul {
     list-style: none;
     padding-left: 0;
     margin-top: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     width: 100%;
     overflow: auto;
     max-height: 300px;
@@ -101,3 +104,45 @@ a {
     font-style: italic;
     background-color: var(--bg-color2);
 }
+
+.hide {
+    display: none;
+}
+
+#mode-btn p {
+    font-size: 12px;
+    line-height: 24px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+#mode-btn span {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    transition: all 0.2s;
+    background-repeat: no-repeat;
+}
+
+.dark-toggle {
+    background-image: url('toggle-off.svg');
+}
+
+#mode-btn:hover .dark-toggle {
+    background-image: url('toggle-off-hover.svg');
+}
+
+.light-toggle {
+    background-image: url('toggle-on.svg');
+}
+
+#mode-btn:hover .light-toggle {
+    background-image: url('toggle-on-hover.svg');
+}
+
+#mode-btn:hover {
+    cursor: pointer;
+}
+
+

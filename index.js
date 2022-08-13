@@ -13,7 +13,12 @@ const displayMode = localStorage.getItem("displayMode");
 const updateLocalStorage = () => localStorage.setItem("myLinks", JSON.stringify(myLinks));
 const renderDisplay = () => {
     if (displayMode) {
-        bodyEl.className = displayMode;
+        bodyEl.className = displayMode; 
+        if (displayMode === "darkmode") {
+            modeBtn.innerHTML = `<span class="dark-toggle"></span> <p>Switch to light mode</p>`
+        } else {
+            modeBtn.innerHTML = `<span class="light-toggle"></span> <p>Switch to dark mode</p>`
+        }
     } else {
         localStorage.setItem("displayMode", "darkmode")
         location.reload();
@@ -44,9 +49,9 @@ linkEl.addEventListener("keyup", function (event) {      // listen for enter key
 
 modeBtn.addEventListener("click", function () {          // toggle display mode
     if (displayMode === "darkmode") {
-        localStorage.setItem("displayMode", "lightmode")
+        localStorage.setItem("displayMode", "lightmode");
     } else {
-        localStorage.setItem("displayMode", "darkmode")
+        localStorage.setItem("displayMode", "darkmode");
     }
     renderDisplay();
     location.reload();
@@ -90,7 +95,9 @@ function render(links) {
         listItems = `
         <li class="ul-placeholder">Saved links go here</li>
         `
+        clearBtn.className = "hide";
     } else {
+        clearBtn.className = "";
         for (i = 0; i < links.length; i++) {
             let newUrl = links[i]["url"];
             let newTitle = links[i]["title"];
@@ -119,10 +126,8 @@ function render(links) {
 }
 
 // nope button, for troubleshooting purposes
-const nope = document.getElementById("nope");
-nope.addEventListener("click", function() {
-    localStorage.clear();
-    location.reload();
-});
-
-// <button id="nope" class="btn2">NOPE</button>
+// const nope = document.getElementById("nope");
+// nope.addEventListener("click", function() {
+//     localStorage.clear();
+//     location.reload();
+// });

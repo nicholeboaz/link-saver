@@ -4,18 +4,25 @@
         <link rel="stylesheet" href="index.css">
     </head>
     <body id="body-el" class="">
-        <input type="text" id="title-el" placeholder="Title">
-        <input type="text" id="link-el" placeholder="Link">
-        <button id="quick-btn" class="btn1">Quick Fill</button>
-        <button id="save-btn" class="btn1">Save</button>
-<!-- add list header -->
-        <ul id="ul-el">
-            <li class="ul-placeholder">Saved links go here</li>
-        </ul>
-        <button id="clear-btn" class="btn2">Clear All</button>
-        <button id="mode-btn" class="btn2">Toggle Dark/Light Mode</button>
-
-        <button id="nope" class="btn2">NOPE</button>
+        <header>
+            <input type="text" id="title-el" placeholder="Title">
+            <input type="text" id="link-el" placeholder="Link">
+            <button id="quick-btn">Current Tab</button>
+            <button id="save-btn">Save</button>    
+        </header>
+        <main>
+            <ul id="ul-el">
+                <li class="ul-placeholder">Saved links go here</li>
+            </ul>
+            <button id="clear-btn" class="hide">Clear All</button>    
+        </main>
+        <footer>
+            <hr />
+            <div id="mode-btn"></div>
+            <!-- nope button, for troubleshooting purposes -->
+            <!-- <hr />
+            <button id="nope">NOPE</button> -->    
+        </footer>
         <script src="index.js"></script>
     </body>
 </html>
